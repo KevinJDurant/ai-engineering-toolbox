@@ -1,42 +1,31 @@
 ---
 name: handoff
-description: Use when the user asks for a handoff, says "do a handoff", wants to continue later, or wants another agent/session to pick up the work. Create the handoff file directly; do not ask for confirmation unless required information is missing.
+description: Use when the user asks for a handoff, says "do a handoff", wants to continue later, or wants another agent/session to pick up the work. Create the handoff file directly in a local handoff log; do not ask for confirmation unless required information is missing.
 ---
 
-Create a handoff document for the current session and save it in this repository.
+Create a Markdown handoff file for the current session. Do not stop at a chat summary.
 
-## Required Behavior
+## Process
 
-1. Inspect the current conversation and relevant repository state.
-2. Create `docs/handoff/` if it does not already exist.
-3. Write a new Markdown file at `docs/handoff/handoff-YYYYMMDD-HHMMSS.md`, using local time.
-4. Report the created file path to the user.
+1. Inspect the conversation and relevant repo state.
+2. Write `.codex/handoff/handoff-YYYYMMDD-HHMMSS.md`, using local time.
+3. Create `.codex/handoff/` if needed.
+4. If inside a Git repo, add `.codex/handoff/` to `.git/info/exclude` if needed. Do not edit `.gitignore` unless asked.
+5. If the user asks for a shareable or committed handoff, write under `docs/handoff/` instead.
+6. Report the created file path.
 
-Do not stop at a summary in chat. The output of this skill is the handoff file.
+## Content
 
-## Handoff Content
+Include only what a fresh agent needs:
 
-Use this structure:
+- current state
+- decisions made
+- relevant files, paths, branches, commits, issues, PRs, or URLs
+- commands run when they matter
+- uncommitted work, failing checks, blocked commands, or missing approvals
+- open questions, risks, and next steps
+- suggested skills, if any
 
-- `# Handoff: <short task name>`
-- `## Current State`
-- `## Decisions Made`
-- `## Files Changed`
-- `## Commands Run`
-- `## Open Questions`
-- `## Next Steps`
-- `## Suggested Skills`
-
-Omit sections that do not apply.
-
-## Content Rules
-
-- Be concise and specific.
-- Include exact paths for files and directories.
-- Include branch names and commit hashes when relevant.
-- Include commands already run only when they matter for continuation.
-- Call out uncommitted work, failing checks, blocked commands, or missing approvals.
-- Reference existing artifacts by path, branch, commit, issue, PR, or URL instead of duplicating their contents.
-- Do not include secrets, credentials, tokens, private keys, or unrelated personal data.
+Do not include secrets, credentials, tokens, private keys, or unrelated personal data.
 
 If the user provides a focus area, tailor the handoff to that focus.
