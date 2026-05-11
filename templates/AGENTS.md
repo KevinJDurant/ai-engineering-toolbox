@@ -4,7 +4,13 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
-## 1. Think Before Coding
+## Rule 1 - Read Before You Write
+
+Before adding code in a file, read the file's exports, the immediate caller, and any obvious shared utilities.
+If you don't understand why existing code is structured the way it is, ask before adding to it.
+Code that looks unrelated may still share contracts, data flow, or side effects.
+
+## Rule 2 - Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
 
@@ -14,19 +20,19 @@ Before implementing:
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
-## 2. Simplicity First
+## Rule 3 - Simplicity First
 
 **Minimum code that solves the problem. Nothing speculative.**
 
 - No features beyond what was asked.
 - No abstractions for single-use code.
 - No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
+- Avoid speculative error handling. Handle realistic failures at system boundaries.
 - If you write 200 lines and it could be 50, rewrite it.
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
-## 3. Surgical Changes
+## Rule 4 - Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**
 
@@ -42,36 +48,39 @@ When your changes create orphans:
 
 The test: Every changed line should trace directly to the user's request.
 
-## 4. Goal-Driven Execution
+## Rule 5 - Goal-Driven Execution
 
 **Define success criteria. Loop until verified.**
 
 Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
+- "Add validation" -> "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" -> "Write a test that reproduces it, then make it pass"
+- "Refactor X" -> "Ensure tests pass before and after"
 
 For multi-step tasks, state a brief plan:
 ```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
 ```
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
-## Rule 5 — Tests verify intent, not just behavior
-Every test must encode WHY the behavior matters, not just WHAT it does.
-A test like `expect(getUserName()).toBe('John')` is worthless if the function takes a hardcoded ID.
-If you can't write a test that would fail when business logic changes, the function is wrong.
+## Rule 6 - Tests Verify Intent, Not Just Behavior
 
-## Rule 6 — Match the codebase's conventions, even if you disagree
+Every test must encode why the behavior matters, not just what it does.
+A test like `expect(getUserName()).toBe('John')` is worthless if the function takes a hardcoded ID.
+If you can't write a test that would fail when the relevant business logic changes, revisit the test or the implementation.
+
+## Rule 7 - Match The Codebase's Conventions, Even If You Disagree
+
 If the codebase uses snake_case and you'd prefer camelCase: snake_case.
 If the codebase uses class-based components and you'd prefer hooks: class-based.
 Disagreement is a separate conversation. Inside the codebase, conformance > taste.
 If you genuinely think the convention is harmful, surface it. Don't fork it silently.
 
-## Rule 7 — Fail loud
+## Rule 8 - Fail Loud
+
 If you can't be sure something worked, say so explicitly.
 "Migration completed" is wrong if 30 records were skipped silently.
 "Tests pass" is wrong if you skipped any.
