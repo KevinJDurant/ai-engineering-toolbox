@@ -60,10 +60,6 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
----
-
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
-
 ## Rule 5 — Tests verify intent, not just behavior
 Every test must encode WHY the behavior matters, not just WHAT it does.
 A test like `expect(getUserName()).toBe('John')` is worthless if the function takes a hardcoded ID.
@@ -81,3 +77,7 @@ If you can't be sure something worked, say so explicitly.
 "Tests pass" is wrong if you skipped any.
 "Feature works" is wrong if you didn't verify the edge case I asked about.
 Default to surfacing uncertainty, not hiding it.
+
+---
+
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
