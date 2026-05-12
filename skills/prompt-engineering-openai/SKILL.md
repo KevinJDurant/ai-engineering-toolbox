@@ -1,18 +1,18 @@
 ---
 name: prompt-engineering-openai
-description: Use when the user asks to improve, rewrite, debug, or optimize a prompt for ChatGPT or OpenAI models, or to create, audit, or refine a master/system prompt for an AI agent. Also use for GPT-5.5 and GPT-5-family prompt migrations, outcome-first prompt design, success criteria, reasoning effort, verbosity, tool descriptions, output formats, and model-specific behavior changes.
+description: Use when the user asks to improve, rewrite, debug, audit, or optimize a prompt for ChatGPT or OpenAI models, or to create or refine a master/system prompt for an AI agent. Also use for GPT-5.5 outcome-first prompt design, success criteria, reasoning effort, verbosity, tool descriptions, output formats, and model-specific prompt behavior.
 ---
 
 Use the official GPT-5.5 prompt guidance as the source of truth: https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5.
 
-This skill distills reusable prompt-design patterns. It does not replace migration tooling, product-specific evals, or project-specific validation.
+This skill distills reusable prompt-design patterns. It intentionally omits the source page's migration sections and frontend design/style sections. It does not replace product-specific evals or project-specific validation. If this skill and the source page differ, follow the source page.
 
 ## Select the prompt task
 
 First classify the request:
 - **ChatGPT prompt optimization**: Improve a user-facing prompt that someone will paste into ChatGPT or an OpenAI model. Preserve the user's intended task, reduce ambiguity, add missing context, define the output shape, and avoid unnecessary system-prompt machinery.
 - **Agent master prompt design**: Create or refine a durable instruction prompt for an agent that will operate across many tasks. Define role, operating principles, tool rules, clarification behavior, state handling, validation, final-answer behavior, and boundaries.
-- **Prompt migration or audit**: Update an existing prompt for GPT-5.5 or another GPT-5-family model. Remove obsolete model-specific workarounds, tighten invariants, and align reasoning effort, verbosity, tools, and output contracts with the target model.
+- **Prompt audit**: Review an existing GPT-5.5 prompt for clarity, contradictions, over-specific process, reasoning effort, verbosity, tool rules, and output contracts.
 
 When the user's target is unclear, infer it from context. Ask only when the difference changes the artifact materially, such as a one-off ChatGPT prompt versus an agent system prompt.
 
