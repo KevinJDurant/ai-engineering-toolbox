@@ -1,6 +1,6 @@
 ---
 name: writing-dutch-skill
-description: Gebruik wanneer de gebruiker vraagt om Nederlandse tekst te schrijven, herschrijven, redigeren, menselijker te maken of te polijsten zodat die natuurlijk, specifiek en menselijk klinkt. Vooral geschikt voor proza, documentatie, e-mails, essays, marketingteksten, bio's, socialmediaberichten, UI-teksten en andere Nederlandse tekst waarbij stem en leesbaarheid belangrijk zijn.
+description: Gebruik deze skill wanneer de gebruiker vraagt om Nederlandse tekst te schrijven, herschrijven, redigeren, menselijker te maken of te polijsten zodat die natuurlijk, specifiek en menselijk klinkt. Vooral geschikt voor proza, documentatie, e-mails, essays, marketingteksten, bio's, socialmediaberichten, UI-teksten en andere Nederlandse tekst waarbij stem en leesbaarheid belangrijk zijn.
 ---
 
 # Writing Dutch Skill
