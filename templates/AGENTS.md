@@ -87,6 +87,9 @@ If you can't be sure something worked, say so explicitly.
 "Feature works" is wrong if you didn't verify the edge case I asked about.
 Default to surfacing uncertainty, not hiding it.
 
+## Rule 9 - Do Not Worry About Breaking Changes
+Never add fallbacks, never think about legacy fallbacks or worry about breaking changes unless explicitly asked. Do not add any extra fallback code, fallback checks, or fallback branches that are not explicitly requested. 
+
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
