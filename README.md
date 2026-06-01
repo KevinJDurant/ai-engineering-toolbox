@@ -25,3 +25,9 @@ Personal AI engineering workbench for skills, prompts, MCPs, agents, docs, resea
 - Understand Anything
   - Link: https://understand-anything.com/
   - Why: interesting tool for learning and understanding complex topics / codebases
+- TypeWhisper
+  - Link: https://www.typewhisper.com/en/
+  - Why: dictation
+- RayCast
+  - Link: https://www.raycast.com/
+  - Why: better search 

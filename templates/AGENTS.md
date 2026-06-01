@@ -1,9 +1,5 @@
 # AGENTS.md
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
-
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
-
 ## Rule 1 - Read Before You Write
 
 Before adding code in a file, read the file's exports, the immediate caller, and any obvious shared utilities.
@@ -89,7 +85,3 @@ Default to surfacing uncertainty, not hiding it.
 
 ## Rule 9 - Do Not Worry About Breaking Changes
 Never add fallbacks, never think about legacy fallbacks or worry about breaking changes unless explicitly asked. Do not add any extra fallback code, fallback checks, or fallback branches that are not explicitly requested. 
-
----
-
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
