@@ -13,8 +13,16 @@
 - Have the vualt be a self-contained GitHub repository so the agent can see the diffs as surface memory.
 
 # Computer and Browser Use
-- Have variables like $browser, $chrome, @computer etcetera to point Codex to use those tools.
+- Have variables like $browser, $chrome, @computer etcetera to point Codex to use those tools (these variables need to be configured).
 - When browser or app use is restricted, install a browser MCP (https://github.com/chromeDevTools/chrome-devtools-mcp/) and login to your Teams, Slack, Mails, etc and have the sessions persisted. It can then do read/write actions headless. Have a subagent review the click actions.
+
+```md
+# AGENTS.md
+Interpret these tags as workflow hints:
+- `@browser`: use Browser Use or the in-app browser for web tasks that do not require a signed-in Chrome profile.
+- `@chrome`: use the Chrome DevTools MCP server for authenticated browser tasks, DOM inspection, network inspection, and persistent logged-in sessions.
+- `@computer`: use Computer Use for native desktop apps or flows that require OS-level interaction.
+```
 
 # Heartbeats
 - Plan recurring checks such as keep an eye on X for a few hours and use the browser.
