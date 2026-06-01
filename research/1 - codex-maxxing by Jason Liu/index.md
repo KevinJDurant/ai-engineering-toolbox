@@ -14,7 +14,7 @@
 
 # Computer and Browser Use
 - Have variables like $browser, $chrome, @computer etcetera to point Codex to use those tools (these variables need to be configured).
-- When browser or app use is restricted, install a browser MCP (https://github.com/chromeDevTools/chrome-devtools-mcp/) and login to your Teams, Slack, Mails, etc and have the sessions persisted. It can then do read/write actions headless. Have a subagent review the click actions.
+- When browser or app use is restricted, install a browser MCP (https://github.com/chromeDevTools/chrome-devtools-mcp/ or better https://agent-browser.dev/cdp-mode) and login to your Teams, Slack, Mails, etc and have the sessions persisted. It can then do read/write actions headless. Have a subagent review the click actions.
 
 ```md
 # AGENTS.md
